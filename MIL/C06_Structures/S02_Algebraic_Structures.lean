@@ -175,17 +175,17 @@ morally the same as the definition of a group that Mathlib uses.
 
 It is sometimes useful to bundle
 the type together with the structure, and Mathlib also
-contains a definition of a ``GroupCat`` structure that is equivalent to
+contains a definition of a ``Grp`` structure that is equivalent to
 the following:
 EXAMPLES: -/
 -- QUOTE:
-structure Group₁Cat where
+structure Grp₁ where
   α : Type*
   str : Group₁ α
 -- QUOTE.
 
 /- TEXT:
-The Mathlib version is found in ``Mathlib.Algebra.Category.GroupCat.Basic``,
+The Mathlib version is found in ``Mathlib.Algebra.Category.Grp.Basic``,
 and you can ``#check`` it if you add this to the imports at the
 beginning of the examples file.
 
@@ -277,7 +277,7 @@ def permGroup {α : Type*} : Group₁ (Equiv.Perm α)
 
 /- TEXT:
 In fact, Mathlib defines exactly this ``Group`` structure on ``Equiv.Perm α``
-in the file ``GroupTheory.Perm.Basic``.
+in the file ``Algebra.Group.End``.
 As always, you can hover over the theorems used in the definition of
 ``permGroup`` to see their statements,
 and you can jump to their definitions in the original file to learn
@@ -586,13 +586,13 @@ because Lean knows that these are defined for every ring.
 We can use this method to specify notation for our ``Group₂`` class:
 EXAMPLES: -/
 -- QUOTE:
-instance hasMulGroup₂ {α : Type*} [Group₂ α] : Mul α :=
+instance {α : Type*} [Group₂ α] : Mul α :=
   ⟨Group₂.mul⟩
 
-instance hasOneGroup₂ {α : Type*} [Group₂ α] : One α :=
+instance {α : Type*} [Group₂ α] : One α :=
   ⟨Group₂.one⟩
 
-instance hasInvGroup₂ {α : Type*} [Group₂ α] : Inv α :=
+instance {α : Type*} [Group₂ α] : Inv α :=
   ⟨Group₂.inv⟩
 
 section
@@ -607,8 +607,6 @@ end
 -- QUOTE.
 
 /- TEXT:
-In this case, we have to supply names for the instances, because
-Lean has a hard time coming up with good defaults.
 What makes this approach work is that Lean carries out a recursive search.
 According to the instances we have declared, Lean can find an instance of
 ``Mul (Equiv.Perm α)`` by finding an

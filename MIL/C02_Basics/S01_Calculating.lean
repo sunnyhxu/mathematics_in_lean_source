@@ -52,7 +52,7 @@ The symbol doesn't appear until you hit space or the tab key.
 If you hover over a symbol when reading a Lean file,
 VS Code will show you the syntax that can be used to enter it.
 If you are curious to see all available abbreviations, you can hit Ctrl-Shift-P
-and then type abbreviations to get access to the ``Lean 4: Show all abbreviations`` command.
+and then type abbreviations to get access to the ``Lean 4: Show Unicode Input Abbreviations`` command.
 If your keyboard does not have an easily accessible backslash,
 you can change the leading character by changing the
 ``lean4.input.leader`` setting.
@@ -279,7 +279,7 @@ example : (a + b) * (a + b) = a * a + 2 * (a * b) + b * b := by
 -- QUOTE.
 
 /- TEXT:
-Whereas it is possible to figure out what it going on in this proof
+Whereas it is possible to figure out what is going on in this proof
 by stepping through it in the editor,
 it is hard to read on its own.
 Lean provides a more structured way of writing proofs like this
